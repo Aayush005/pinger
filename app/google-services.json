@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "625526197387",
+    "firebase_url": "https://pinger-7db5c.firebaseio.com",
+    "project_id": "pinger-7db5c",
+    "storage_bucket": "pinger-7db5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625526197387:android:3f8e256a8f428054",
+        "android_client_info": {
+          "package_name": "tech.aayush.pinger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "625526197387-7hj86q4iid35a0cc0r08ac3fe8u2jgg0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.aayush.pinger",
+            "certificate_hash": "34969c612dd64615cff164d8945ed45edc3094fa"
+          }
+        },
+        {
+          "client_id": "625526197387-9srnp03lbqb24psjbehgj3gha70icgod.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxAK6a7uF0wo4QiTRhi7c0iPbO0rHyIzI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "625526197387-9srnp03lbqb24psjbehgj3gha70icgod.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
