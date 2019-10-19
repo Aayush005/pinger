@@ -25,14 +25,20 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
+import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity implements
         FetchAddressTask.OnTaskCompleted {
@@ -56,7 +62,9 @@ public class MainActivity extends AppCompatActivity implements
     private boolean mTrackingLocation;
     private FusedLocationProviderClient mFusedLocationClient;
     private LocationCallback mLocationCallback;
-
+    FirebaseDatabase database;
+    DatabaseReference myRef;
+    String userId;
     // Animation
     private AnimatorSet mRotateAnim;
 
@@ -77,6 +85,9 @@ public class MainActivity extends AppCompatActivity implements
         mLocationTextView = (TextView) findViewById(R.id.longitude);
         mAndroidImageView = (ImageView) findViewById(R.id.image);
 
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("message");
+        userId = FirebaseAuth.getInstance().getUid();
 
         // Initialize the FusedLocationClient.
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(
@@ -149,11 +160,15 @@ public class MainActivity extends AppCompatActivity implements
 
             // Set a loading text while you wait for the address to be
             // returned
+
             mLocationTextView.setText(getString(R.string.address_text,
                     getString(R.string.loading),
                     System.currentTimeMillis()));
             mLocationButton.setText(R.string.stop_tracking_location);
             mRotateAnim.start();
+            myRef.child(userId).setValue("Hello, World!");
+
+
         }
     }
 
@@ -168,6 +183,7 @@ public class MainActivity extends AppCompatActivity implements
             mLocationButton.setText(R.string.start_tracking_location);
             mLocationTextView.setText(R.string.textview_hint);
             mRotateAnim.end();
+
         }
     }
 
@@ -234,6 +250,11 @@ public class MainActivity extends AppCompatActivity implements
             // Update the UI
             mLocationTextView.setText(getString(R.string.address_text,
                     result, System.currentTimeMillis()));
+
+            Long tsLong = System.currentTimeMillis()/1000;
+            String ts = tsLong.toString();
+
+            myRef.child(userId).child(ts).setValue(result);
         }
     }
 
