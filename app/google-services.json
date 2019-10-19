@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "625526197387-5j745edkeef0bgj2t766gu255obi56es.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.aayush.pinger",
+            "certificate_hash": "e62b9243443b66b98367ce934bde991786ab77cc"
+          }
+        },
+        {
           "client_id": "625526197387-7hj86q4iid35a0cc0r08ac3fe8u2jgg0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -33,20 +41,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "625526197387-9srnp03lbqb24psjbehgj3gha70icgod.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }
